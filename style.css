@@ -1,0 +1,172 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+::after,
+::before {
+  content: "";
+}
+/*
+ bar #393646
+ circle   #d21312
+ red   #569daa
+   body #8b9bc6  #eb4a4a*/
+
+
+body {
+  height: 100vh;
+  /* background-color: #8294c4; */
+    background-image: linear-gradient(to right, #8b9bc6 20%, #eb4a4a 60% 100%);
+    background-size: 10000px;
+    background-position-x: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation:4s 2s linear-gradient infinite alternate ;
+}
+
+@keyframes linear-gradient {
+    0%{background-position-x: 0;}
+    100%{background-position-x: -7000px;}
+}
+/* bar ==> #393646  */
+.bar {
+  width: 500px;
+  height: 25px;
+  background: #393646;
+  border-radius: 0 0 30px 30px;
+  position: relative;
+  transform: rotate(-20deg);
+
+  filter: drop-shadow(15px 12px 10px rgba(22, 20, 20, 0.75));
+
+  animation: up-down 4s 2s infinite alternate;
+}
+
+.bar::after {
+  width: 10%;
+  height: 4px;
+  background-color: #569daa;
+
+  position: absolute;
+  top: 0;
+  right: 0;
+  border-radius: 0 0 3px 3px;
+  animation: progress 4s 2s infinite alternate;
+}
+@keyframes up-down {
+    from {
+      transform: rotate(-20deg);
+    }
+    to {
+      transform: rotate(20deg);
+    }
+  }
+
+@keyframes progress {
+  from {
+    width: 10%;
+    background-color: #569daa;
+  }
+  to {
+    width: 97%;
+    background-color: #d21312;
+  }
+}
+
+.ball {
+    overflow: hidden;
+  position: relative;
+  bottom: 100px; 
+  bottom: 100px;
+   left: calc(100% - 70px);  
+  left: calc(100% - 80px);
+  width: 100px;
+  height: 100px;
+  background: #19a7ce;
+  border-radius: 50%;
+  animation: ball-move 4s 2s infinite alternate;
+
+  
+}
+
+.ball::after {
+  width: 20px;
+  height: 20px;
+  background-color: white;
+  position: absolute;
+  top: 70%;
+  left: 20px;
+  border-radius: 50%;
+}
+
+.ball::before {
+    width: 200px;
+    height: 200px;
+    bottom: 40%;
+    left: -50%;
+    border-radius: 25%;
+    background-color: white;
+    position: absolute;
+
+    animation: wave 4s 2s   infinite alternate  ;
+}
+
+@keyframes ball-move {
+  from {
+    left: calc(100% - 80px);
+    /* transform: rotate(0); */
+  }
+  to {
+    background-color: #d21312;
+    left: calc(0% - 35px);
+    /* transform: rotate(360deg); */
+  }
+} 
+
+@keyframes wave {
+    from {
+        bottom: 40%;
+        transform: rotate(0deg);
+    }
+    to {
+        bottom: 99%;
+        transform: rotate(270deg);
+    }
+  } 
+/* body {
+  background: red;
+}
+
+.wrapper {
+  background-color: blue;
+  width: 500px;
+  height: 500px;
+
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 5px;
+    overflow: hidden;
+}
+
+.wave {
+  width: 1000px;
+  height: 1000px;
+
+  position: absolute;
+left: -50%;
+bottom: 25%;
+  border-radius: 30%;
+  background: white;
+  animation: wave 15s infinite linear;
+}
+
+  
+  @keyframes wave {
+    from { transform: rotate(0deg);}
+    from { transform: rotate(360deg);}
+  }  */
